@@ -19,6 +19,29 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # CREATE ALL COMPONENTS AS A RESPONSIVE BOOTSTRAP CARD
 
+# INTRO CARD
+
+intro_card = dbc.Card(
+
+    dbc.CardBody(
+        [
+
+            html.H2('Dashboard Introduction', className='card-title'),
+            html.P('In this Dashboard, I am comparing different video streaming platforms such as Netflix, '
+                   'Prime Video and Hulu. In the left component, A streaming service provider '
+                   'can be selected from the Dropdowns to get insights on the number of Movies and'
+                   ' TV shows that are present on the respective service provider.'
+                   ' In the right component, a line chart visualizing the total releases per year '
+                   '(both Movies and TV shows) has been generated. '
+                   'The Radiobuttons can be used to toggle between service providers')
+
+
+        ]
+    )
+
+
+)
+
 # LEFT CARD
 left_card = dbc.Card(
 
@@ -77,11 +100,13 @@ app.layout = dbc.Container([
                         className='text-center'),
                 width=12)
     ),
-    dbc.Row(
-        dbc.Col(html.H2("Dashboard Introduction",
-                        className=''),
-                width=12)
-    ),
+
+    dbc.Row([
+
+        dbc.Col(intro_card)
+
+    ]),
+
     dbc.Row([
 
         dbc.Col(left_card, width={'size': 5, 'offset': 0}),
@@ -90,11 +115,6 @@ app.layout = dbc.Container([
 
     ]),
 
-    dbc.Row([
-
-        # dbc.Col(map_card)
-
-    ])
 
 ], fluid=True,
 )
