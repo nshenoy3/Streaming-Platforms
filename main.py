@@ -233,4 +233,4 @@ def update_graph(service_selctd):
 
 
 # RUN THE APP
-app.run_server(debug=True, port=8050)
+app.run_server(debug=True)
