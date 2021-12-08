@@ -16,6 +16,7 @@ hulu = pd.read_csv("hulu_titles.csv")
 
 # CREATE A DASH APP
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 
 # CREATE ALL COMPONENTS AS A RESPONSIVE BOOTSTRAP CARD
