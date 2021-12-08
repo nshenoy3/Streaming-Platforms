@@ -107,7 +107,7 @@ cv1_card = dbc.Card(
                'give us some additional context. This visualization has been referenced from Kaggle user KS_LAR_WTF in their '
                'EDA analysis comparing Netflix and Disney+ https://www.kaggle.com/kslarwtf/disney-vs-netflix-make-your-eda-great'),
         dbc.CardImg(src=app.get_asset_url('disneyvsnetflix.jpg'), top=True, style={'width': '200px', 'height':'100px'}),
-        dbc.CardImg(src=app.get_asset_url('comparison.png'), top=True, style={'width': '600px', 'height':'200px',
+        dbc.CardImg(src=app.get_asset_url('comparison.PNG'), top=True, style={'width': '600px', 'height':'200px',
                                                                               'padding-right':'40px'}),
 
     ])
@@ -122,7 +122,7 @@ cv2_card = dbc.Card(
         html.P('This visualization helps give context about how Disney+ has been releasing its TV shows and Movies '
                'over the years. It is referenced from Kaggle User EMRE ARSLAN where they perform EDA on Disney+ '
                'https://www.kaggle.com/emrearslan123/eda-on-disney-movies-and-tv-shows-dataset'),
-    dbc.CardImg(src=app.get_asset_url('disney.png'), top=True, style={'width': '600px', 'height':'200px',
+    dbc.CardImg(src=app.get_asset_url('disney.PNG'), top=True, style={'width': '600px', 'height':'200px',
                                                                               'padding-right':'40px'}),
 
     ])
