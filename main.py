@@ -28,17 +28,15 @@ intro_card = dbc.Card(
 
             html.H2('Dashboard Introduction', className='card-title'),
             html.P('In this Dashboard, I am comparing different video streaming platforms such as Netflix, '
-                   'Prime Video and Hulu. In the left component, A streaming service provider '
-                   'can be selected from the Dropdowns to get insights on the number of Movies and'
-                   ' TV shows that are present on the respective service provider.'
-                   ' In the right component, a line chart visualizing the total releases per year '
-                   '(both Movies and TV shows) has been generated. '
-                   'The Radiobuttons can be used to toggle between service providers')
-
+                   'Prime Video and Hulu.'),
+            html.P('I have used 3 datasets for performing this comparison, namely the Netflix, Hulu and Disney+ datasets '
+                   'which are all released by Kaggle user Shivam Bansal.'
+                   'Netflix Dataset - https://www.kaggle.com/shivamb/netflix-shows '
+                    'Prime Dataset - https://www.kaggle.com/shivamb/amazon-prime-movies-and-tv-shows '
+                   'Hulu Dataset-https://www.kaggle.com/shivamb/hulu-movies-and-tv-shows')
 
         ]
     )
-
 
 )
 
@@ -47,7 +45,10 @@ left_card = dbc.Card(
 
     dbc.CardBody(
         [
-            html.H4("Distribution for Movies and TV Shows", className="card-title"),
+            html.H4("Primary Component- Distribution for Movies and TV Shows", className="card-title"),
+            html.P('In the left component, A streaming service provider '
+                   'can be selected from the Dropdowns to get insights on the number of Movies and'
+                   ' TV shows that are present on the respective service provider.'),
             dcc.Dropdown(
                 id='dpdn',
                 options=[
@@ -72,6 +73,9 @@ right_card = dbc.Card(
 
         [
             html.H4("Yearly Releases", className="card-title"),
+            html.P(' In the right component, a line chart visualizing the total releases per year '
+                   '(both Movies and TV shows) has been generated. '
+                   'The Radiobuttons can be used to toggle between service providers'),
             dcc.RadioItems(
                 id='cl',
                 options=[
@@ -91,6 +95,37 @@ right_card = dbc.Card(
 
 )
 
+# CONTEXTUAL VISUALIZATION 1
+
+cv1_card = dbc.Card(
+    dbc.CardBody([
+
+        html.H4("Contextual Visualization 1", className='card-title', style={'margin-bottom': '20px'}),
+        html.P('This visualization includes The Disney+ Dataset and compares it with the Netflix data to '
+               'give us some additional context. This visualization has been referenced from Kaggle user KS_LAR_WTF in their '
+               'EDA analysis comparing Netflix and Disney+ https://www.kaggle.com/kslarwtf/disney-vs-netflix-make-your-eda-great'),
+        dbc.CardImg(src=app.get_asset_url('disneyvsnetflix.jpg'), top=True, style={'width': '200px', 'height':'100px'}),
+        dbc.CardImg(src=app.get_asset_url('comparison.png'), top=True, style={'width': '600px', 'height':'200px',
+                                                                              'padding-right':'40px'}),
+
+    ])
+)
+
+# CONTEXTUAL VISUALIZATION 2
+
+cv2_card = dbc.Card(
+    dbc.CardBody([
+
+        html.H4("Contextual Visualization 2", className='card-title',style={'margin-bottom': '20px'}),
+        html.P('This visualization helps give context about how Disney+ has been releasing its TV shows and Movies '
+               'over the years. It is referenced from Kaggle User EMRE ARSLAN where they perform EDA on Disney+ '
+               'https://www.kaggle.com/emrearslan123/eda-on-disney-movies-and-tv-shows-dataset'),
+    dbc.CardImg(src=app.get_asset_url('disney.png'), top=True, style={'width': '600px', 'height':'200px',
+                                                                              'padding-right':'40px'}),
+
+    ])
+)
+
 # DEFINE THE APP LAYOUT
 
 app.layout = dbc.Container([
@@ -103,18 +138,27 @@ app.layout = dbc.Container([
 
     dbc.Row([
 
-        dbc.Col(intro_card)
+        dbc.Col(intro_card, style={'background': '#0047AB', 'padding': '17px', 'margin': '20px'})
 
     ]),
 
     dbc.Row([
 
-        dbc.Col(left_card, width={'size': 5, 'offset': 0}),
+        dbc.Col(left_card, width={'size': 5, 'offset': 0},
+                style={'background': '#0047AB', 'padding': '17px', 'margin': '20px'}),
 
-        dbc.Col(right_card, width={'size': 6, 'offset': 1}),
+        dbc.Col(right_card, width={'size': 6, 'offset': 1},
+                style={'background': '#0047AB', 'padding': '17px', 'margin': '20px'}),
 
     ]),
 
+    dbc.Row([
+
+        dbc.Col(cv1_card, width={'size': 5, 'offset': 0},
+                style={'background': '#0047AB', 'padding': '17px', 'margin': '20px'}),
+        dbc.Col(cv2_card, width={'size': 6, 'offset': 0},
+                style={'background': '#0047AB', 'padding': '17px', 'margin': '20px'})
+    ]),
 
 ], fluid=True,
 )
